@@ -1,7 +1,5 @@
 import { Button, TextField, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import axios from 'axios';
-import { parse } from 'papaparse';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import AddByCsv from './AddByCsv/AddByCsv';
@@ -9,7 +7,7 @@ import AddByCsv from './AddByCsv/AddByCsv';
 const AddEmployee = () => {
     const { register, handleSubmit, reset } = useForm();
     const [addByFile, setAddByFile] = useState(false);
-    const onSubmit = employeeData => {
+    const onSubmit = (employeeData) => {
 
         axios.post('http://localhost:3006/employee/addEmployee', employeeData)
             .then(res => {

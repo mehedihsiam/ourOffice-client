@@ -1,0 +1,35 @@
+.paginationBtns{
+    display: flex;
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    justify-content: center;
+}
+
+.paginationBtns a{
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 60, 26);
+    background-color: rgba(255, 227, 222, 0.432);
+    color: rgb(255, 60, 26);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.paginationBtns a:hover, .activeBtn a{
+    background-color: rgb(255, 60, 26);
+    color: white;
+}
+
+.disabledBtn a{
+    border: 1px solid rgb(187, 187, 187);
+    background-color: transparent;
+    color: rgb(187, 187, 187);
+}
+.disabledBtn a:hover{
+    border: 1px solid rgb(187, 187, 187);
+    background-color: transparent;
+    color: rgb(187, 187, 187);
+    cursor:not-allowed;
+}
