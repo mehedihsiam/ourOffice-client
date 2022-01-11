@@ -89,9 +89,8 @@ const AllEmployees = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <TextField
                                 hiddenLabel
-                                id="filled-hidden-label-small"
-                                defaultValue="Small"
-                                variant="filled"
+                                label="Search by email"
+                                variant="outlined"
                                 size="small"
                                 {...register("searchKeyword")}
                             />
