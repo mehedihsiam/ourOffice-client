@@ -1,0 +1,55 @@
+.appName{
+    color: #e72c39;
+    font-weight: 500;
+    transition: color 0.5s;
+    
+}
+.appName:hover{
+    color: #be020e;
+}
+
+.outlinedBtn{
+    border: 1px solid #e72c39 !important;
+    color: #e72c39 !important;
+    transition: all 0.5s;
+    
+    
+}
+.outlinedBtn:hover{
+    border: 1px solid #be020e !important;
+    color: #be020e !important;
+    background-color: #ffe1e346 !important;
+    
+}
+.fieledBtn{
+    background-color: #e72c39 !important;
+    color: white !important;
+    transition: all 0.5s;
+
+    
+    
+}
+.fieledBtn:hover{
+    background-color: #be020e !important;
+    
+}
+.link{
+    text-decoration: none;
+}
+
+.btn-link{
+    color: #e72c39;
+    transition: all 0.5s;
+}
+.btn-link:hover{
+    color: #be020e;
+}
+
+
+.text-a{
+    color: #e72c39;
+}
+
+.text-b{
+    color: white;
+}

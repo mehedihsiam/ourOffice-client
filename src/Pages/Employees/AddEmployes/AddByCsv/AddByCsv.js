@@ -3,6 +3,9 @@ import { Box } from '@mui/system';
 import axios from 'axios';
 import { parse } from 'papaparse';
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
+import './AddByCsv.css'
 
 const AddByCsv = () => {
     const [employeeInfo, setEmployeeInfo] = useState(null);
@@ -24,15 +27,9 @@ const AddByCsv = () => {
     return (
         <div>
             <form action="">
-                <Box sx={{
-                    width: '70%',
-                    height: '70vh',
-                    borderRadius: '5px',
-                    border: '1px solid tomato',
-                    backgroundColor: '#ffaa9b62',
-                    mx: 'auto'
-                }}>
-                    <div style={{ width: '100%', height: '100%' }}
+                <Box className="dragArea">
+                    <div
+                        className="drag-inside"
                         onDragOver={(e) => {
                             e.preventDefault();
                         }}
@@ -48,26 +45,37 @@ const AddByCsv = () => {
                                 })
                         }}
                     >
-                        <Box sx={{ my: 'auto', mx: 'auto' }}>
-                            {employeeInfo ? <Typography>{fileName} has been Dropped</Typography> : <Typography>Drop Here CSV File</Typography>}
+                        <Box>
+                            <Box sx={{ my: 2 }}>
+                                {employeeInfo ? <Typography>{fileName} has been Dropped</Typography> : <Typography>Drop Here CSV File</Typography>}
+                            </Box>
+                            <label className='fileInput'>
+                                <input
+                                    type='file'
+                                    accept='.csv'
+                                    onChange={(e) => {
+                                        Array.from(e.target.files)
+                                            .forEach(async (file) => {
+                                                const text = await file.text();
+                                                setFileName(file.name)
+                                                const info = parse(text, { header: true });
+                                                const result = info.data;
+                                                setEmployeeInfo(result);
+                                            })
+                                    }}
+                                />
+                                <span className='uploadBtn'>
+                                    <FontAwesomeIcon icon={faCloudUploadAlt} />
+                                </span>
+                                <Typography>Upload a CSV file</Typography>
+                            </label>
+                            <br />
+                            <Button
+                                sx={{ mt: 4 }}
+                                className='fieledBtn'
+                                onClick={() => addData(employeeInfo)}>Add
+                            </Button>
                         </Box>
-                        <input
-                            type='file'
-                            accept='.csv'
-                            id='csvFile'
-                            onChange={(e) => {
-                                Array.from(e.target.files)
-                                    .forEach(async (file) => {
-                                        const text = await file.text();
-                                        const info = parse(text, { header: true });
-                                        const result = info.data;
-                                        setEmployeeInfo(result);
-                                    })
-                            }}
-                        >
-                        </input>
-                        <br />
-                        <Button variant='outlined' onClick={() => addData(employeeInfo)}>Add</Button>
                     </div>
 
                 </Box>

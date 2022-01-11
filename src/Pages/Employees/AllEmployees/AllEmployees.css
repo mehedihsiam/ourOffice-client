@@ -7,18 +7,19 @@
 }
 
 .paginationBtns a{
-    padding: 10px 15px;
+    padding: 7px 10px;
     margin: 5px;
+    font-size: 0.7rem;
     border-radius: 5px;
-    border: 1px solid rgb(255, 60, 26);
+    border: 1px solid #e72c39;
     background-color: rgba(255, 227, 222, 0.432);
-    color: rgb(255, 60, 26);
+    color: #e72c39;
     font-weight: bold;
     cursor: pointer;
 }
 
 .paginationBtns a:hover, .activeBtn a{
-    background-color: rgb(255, 60, 26);
+    background-color: #e72c39;
     color: white;
 }
 

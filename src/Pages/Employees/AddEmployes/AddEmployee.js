@@ -24,8 +24,9 @@ const AddEmployee = () => {
     return (
         <div>
             <Typography
+                className='text-a'
                 variant='h4'
-                sx={{ my: 2, color: '#1976D2', fontSize: { xs: '1rem', md: '2rem' } }}
+                sx={{ my: 5, fontSize: { xs: '1rem', md: '2rem' } }}
             >Add an Employee</Typography>
             {
                 addByFile ?
@@ -33,7 +34,9 @@ const AddEmployee = () => {
 
                         <AddByCsv></AddByCsv>
                         <br />
-                        <Button variant='outlined' onClick={() => setAddByFile(false)}>Add By Input</Button>
+                        <Button
+                            className='outlinedBtn'
+                            onClick={() => setAddByFile(false)}>Add By Input</Button>
                     </>
                     :
                     <>
@@ -42,6 +45,7 @@ const AddEmployee = () => {
                                 label="Firs Name"
                                 variant="outlined"
                                 required
+                                sx={{ width: '50%' }}
                                 {...register("firstName")} />
                             <br />
                             <br />
@@ -49,6 +53,7 @@ const AddEmployee = () => {
                                 label="Last Name"
                                 variant="outlined"
                                 required
+                                sx={{ width: '50%' }}
                                 {...register("lastName")} />
                             <br />
                             <br />
@@ -57,19 +62,22 @@ const AddEmployee = () => {
                                 type="email"
                                 variant="outlined"
                                 required
+                                sx={{ width: '50%' }}
                                 {...register("email")} />
                             <br />
                             <br />
                             <Button
                                 type='submit'
-                                variant='contained'
+                                className='fieledBtn'
                             >Add</Button>
                         </form>
                         <br />
-                        <Button variant='outlined' onClick={() => setAddByFile(true)}>Add By CSV File</Button>
+                        <Button
+
+                            className='outlinedBtn'
+                            onClick={() => setAddByFile(true)}>Add By CSV File</Button>
                     </>
             }
-            {/* <input type="file" accept='file/CSV' name="" id="" /> */}
 
         </div>
     );

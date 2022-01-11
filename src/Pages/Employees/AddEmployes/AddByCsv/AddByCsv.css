@@ -1,0 +1,31 @@
+.dragArea{
+    width: 70%;
+    height: 50vh;
+    border: 2px dotted #e72c39;
+    border-radius: 10px;
+    background-color: #ffe1e346;
+    margin: 0px auto;
+}
+
+.drag-inside{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.fileInput{
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.uploadBtn{
+    color: #e72c39;
+    font-size: 3rem;
+}

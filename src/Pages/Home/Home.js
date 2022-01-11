@@ -1,7 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListItemIcon } from '@mui/material';
-import MuiDrawer from '@mui/material/Drawer';
-import { styled } from '@mui/material/styles';
+import { Drawer, List, ListItem } from '@mui/material';
 import { Box } from '@mui/system';
 import AddEmployee from '../Employees/AddEmployes/AddEmployee';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,79 +10,46 @@ import AllEmployees from '../Employees/AllEmployees/AllEmployees';
 import SubHome from '../SubHome/SubHome';
 
 
-const drawerWidth = 240;
-
-const openedMixin = (theme) => ({
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-    }),
-    overflowX: 'hidden',
-});
-
-const closedMixin = (theme) => ({
-    transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    width: `calc(${theme.spacing(7)} + 1px)`,
-    [theme.breakpoints.up('sm')]: {
-        width: `calc(${theme.spacing(9)} + 1px)`,
-    },
-});
 
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-    ({ theme, open }) => ({
-        width: drawerWidth,
-        flexShrink: 0,
-        whiteSpace: 'nowrap',
-        boxSizing: 'border-box',
-        ...(open && {
-            ...openedMixin(theme),
-            '& .MuiDrawer-paper': openedMixin(theme),
-        }),
-        ...(!open && {
-            ...closedMixin(theme),
-            '& .MuiDrawer-paper': closedMixin(theme),
-        }),
-    }),
-);
+
+
+
 
 const Home = () => {
 
 
     return (
-        <Box>
-            <Drawer variant="permanent">
+        <>
+            <Box>
+                <Drawer variant="permanent">
 
-                <List sx={{ backgroundColor: 'tomato', height: '100%' }}>
-                    <Link to='/home' className='link'>
+                    <List sx={{ backgroundColor: '#e72c39', height: '100%' }}>
+
                         <ListItem>
-                            <ListItemIcon sx={{ textAlign: 'center' }}>
-                                <FontAwesomeIcon icon={faHome} />
-                            </ListItemIcon>
+                            <abbr title="Home">
+                                <Link to='/home' className='link text-b routes'>
+                                    <FontAwesomeIcon icon={faHome} />
+                                </Link>
+                            </abbr>
                         </ListItem>
-                    </Link>
-                    <Link to='/addEmployee' className='link'>
                         <ListItem>
-                            <ListItemIcon sx={{ textAlign: 'center' }}>
-                                <FontAwesomeIcon icon={faPlusCircle} />
-                            </ListItemIcon>
+                            <abbr title="Add an employee">
+                                <Link to='/addEmployee' className='link text-b routes'>
+                                    <FontAwesomeIcon icon={faPlusCircle} />
+                                </Link>
+                            </abbr>
                         </ListItem>
-                    </Link>
-                    <Link to='/allEmployees' className='link'>
                         <ListItem>
-                            <ListItemIcon sx={{ textAlign: 'center' }}>
-                                <abbr title="Employee List"><FontAwesomeIcon icon={faListAlt} /></abbr>
-                            </ListItemIcon>
+                            <abbr title="Employye List">
+                                <Link to='/allEmployees' className='link text-b routes'>
+                                    <FontAwesomeIcon icon={faListAlt} />
+                                </Link>
+                            </abbr>
                         </ListItem>
-                    </Link>
-                </List>
-            </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                    </List>
+                </Drawer>
+
                 <Switch>
                     <Route exact path='/'>
                         <SubHome></SubHome>
@@ -99,8 +64,10 @@ const Home = () => {
                         <AllEmployees></AllEmployees>
                     </Route>
                 </Switch>
+
             </Box>
-        </Box>
+            {/* <Footer></Footer> */}
+        </>
     );
 };
 
